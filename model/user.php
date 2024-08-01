@@ -93,4 +93,9 @@ function loadone_user($id)
     $user = pdo_query_one($sql);
     return $user;
 }
+function checkuser($user,$pass){
+    $sql= "select * from khach_hang where email = ".$user." and mat_khau = ".$pass."  ";
+    $check = pdo_query($sql);
+    return $check;
+}
 

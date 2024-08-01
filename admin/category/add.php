@@ -4,6 +4,7 @@
         $ten_loai = $_POST['ten_loai'];
         add_loai_sp($ten_loai);
         $message = "Thêm thành công";
+        header("Location: index.php?act=list_category");
     }
 ?>
 <div style="margin-left: 350px" class="container">

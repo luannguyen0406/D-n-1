@@ -138,7 +138,7 @@ $index = 0;
             <form>
                 <div class="form-label">
                     <span class="text-red">Trạng thái đơn hàng</span>
-                    <select name="trang_thai" <?php if($ma_trang_thai > 3) echo "disabled"; ?> >
+                    <select name="trang_thai" <?php if($ma_trang_thai > 3) echo "disabled"; ?> disabled>
                         <?php foreach ($list_trang_thai as $i) : ?>
                             <option value="<?= $i['ma_trang_thai'] ?>" <?php if ($i['ma_trang_thai'] == $ma_trang_thai) echo 'selected' ?>><?= $i['ten_trang_thai'] ?></option>
                         <?php endforeach; ?>
@@ -149,7 +149,7 @@ $index = 0;
                     <div style="width:50%;">
                         <div class="form-label">
                             <span>Mã hoá đơn</span>
-                            <input type="text" name="ma_don_hang" placeholder="Mã hoá đơn" required="Vui lòng không bỏ trống ô này" disabled value="<?= $ma_don_hang ?>">
+                            <input type="text" name="ma_don_hang" placeholder="Mã hoá đơn" required="Vui lòng không bỏ trống ô này" disabled value="<?= $ma_don_hang ?>" disabled>
                         </div>
 
                         <div class="form-label">
@@ -158,11 +158,11 @@ $index = 0;
                         </div>
                         <div class="form-label">
                             <span>Ngày tạo</span>
-                            <input type="text" name="ngay_dat_hang" placeholder="Mật khẩu" value="<?= $ngay_dat_hang ?>">
+                            <input type="text" name="ngay_dat_hang" placeholder="Mật khẩu" value="<?= $ngay_dat_hang ?>" disabled>
                         </div>
                         <div class="form-label">
                             <span>Phương thức giao hàng</span>
-                            <select name="pt_ship" id="">
+                            <select name="pt_ship" id="" disabled>
                                 <?php foreach ($list_pt_ship as $i) : ?>
                                     <option value="<?= $i['ma_pt'] ?>"><?= $i['ten_pt'] ?></option>
                                 <?php endforeach; ?>
@@ -173,17 +173,17 @@ $index = 0;
                     <div style="width:50%;">
                         <div class="form-label">
                             <span>Tên người nhận</span>
-                            <input type="text" name="ten_nguoi_nhan" placeholder="Email" value="<?= $ten_nguoi_nhan ?>">
+                            <input type="text" name="ten_nguoi_nhan" placeholder="Email" value="<?= $ten_nguoi_nhan ?>" disabled>
                         </div>
 
                         <div class="form-label">
                             <span>Số điện thoại</span>
-                            <input type="text" name="so_dien_thoai" placeholder="Số điện thoại" value="<?= $so_dien_thoai ?>">
+                            <input type="text" name="so_dien_thoai" placeholder="Số điện thoại" value="<?= $so_dien_thoai ?>" disabled>
                         </div>
 
                         <div class="form-label">
                             <span>Địa chỉ</span>
-                            <input type="text" name="dia_chi" placeholder="Địa chỉ" value="<?= $dia_chi ?>">
+                            <input type="text" name="dia_chi" placeholder="Địa chỉ" value="<?= $dia_chi ?>" disabled>
                         </div>
 
                         <div class="form-label">
@@ -262,7 +262,7 @@ $index = 0;
 
                 <div class="them" style="margin-top: 20px;display:flex;column-gap: 20px;">
                     <a href="?act=bill"><input type="button" value="Danh sách" class="reset"></a>
-                    <div class="reset" id="update" style="cursor: pointer;text-align: center;">Cập nhật</div>
+                    <!-- <div class="reset" id="update" style="cursor: pointer;text-align: center;">Cập nhật</div> -->
                 </div>
             </form>
         </div>

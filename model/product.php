@@ -14,18 +14,17 @@ function get_product($id)
     return $pro;
 }
 // loai san pham
-function add_san_pham($ten_san_pham, $don_gia, $ma_loai, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
+function add_san_pham($ten_san_pham, $don_gia, $ma_loai, $gia_khuyen_mai, $mo_ta_tom_tat, $ngay_tao, $so_luong, $tac_gia, $nxb, $nam_xb, $so_trang)
 {
-    // $sql = "INSERT INTO san_pham VALUES ('$ten_san_pham', '$don_gia', '$ma_loai', '$anh_san_pham', '$mo_ta_tom_tat', 
-    //         '$ngay_tao', '$gia_khuyen_mai', '$so_luong');";
-
-    $sql = "INSERT INTO `duan`.`san_pham` (`ma_san_pham`, `ten_san_pham`, `don_gia`, `ma_loai`, `gia_khuyen_mai`, `mo_ta_tom_tat`, `ngay_tao`, `chi_tiet_san_pham`, `so_luong_san_pham`) ".
-    "VALUES (DEFAULT, '$ten_san_pham', '$don_gia', $ma_loai, '$gia_khuyen_mai', '$mo_ta_tom_tat', '$ngay_tao', 'a', $so_luong);";
+    $sql = "INSERT INTO `duan`.`san_pham` (`ma_san_pham`, `ten_san_pham`, `don_gia`, `ma_loai`, `gia_khuyen_mai`,
+     `mo_ta_tom_tat`, `ngay_tao`, `chi_tiet_san_pham`, `so_luong_san_pham`,`tac_gia`,`nxb`,`nam_xb`,`so_trang`) " .
+        "VALUES (DEFAULT, '$ten_san_pham', '$don_gia', $ma_loai, '$gia_khuyen_mai','$mo_ta_tom_tat', '$ngay_tao','a', $so_luong,'$tac_gia','$nxb', $nam_xb, $so_trang);";
     $id = pdo_execute_lastInsertId($sql);
     return $id;
 }
 
-function add_img_san_pham($id, $_img) {
+function add_img_san_pham($id, $_img)
+{
     $sql = "UPDATE `duan`.`san_pham` SET `anh_san_pham` = '$_img' WHERE `ma_san_pham` = $id;";
     pdo_execute($sql);
 }
@@ -47,11 +46,26 @@ function get_one_san_pham($id)
     $product =  pdo_query_one($sql);
     return $product;
 }
-function edit_san_pham($ma_san_pham, $ten_san_pham, $don_gia, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong)
-{
-    $sql = "UPDATE san_pham SET ma_san_pham='$ma_san_pham', ten_san_pham='$ten_san_pham', don_gia='$don_gia', anh_san_pham='$anh_san_pham', 
-            mo_ta_tom_tat='$mo_ta_tom_tat', ngay_tao='$ngay_tao', gia_khuyen_mai='$gia_khuyen_mai', so_luong='$so_luong',  WHERE id='$ma_san_pham'";
+function edit_san_pham(
+    $ma_sp,
+    $ten_san_pham,
+    $don_gia,
+    $ma_loai,
+    $anh_san_pham,
+    $mo_ta_tom_tat,
+    $ngay_tao,
+    $gia_khuyen_mai,
+    $so_luong,
+    $tac_gia,
+    $nxb,
+    $nam_xb,
+    $so_trang
+) {
+    $sql = "UPDATE san_pham SET ten_san_pham='$ten_san_pham', don_gia='$don_gia',ma_loai='$ma_loai', anh_san_pham='$anh_san_pham', 
+            gia_khuyen_mai='$gia_khuyen_mai',mo_ta_tom_tat='$mo_ta_tom_tat', ngay_tao='$ngay_tao',  so_luong_san_pham='$so_luong',
+            tac_gia = '$tac_gia', nxb = '$nxb', nam_xb='$nam_xb', so_trang='$so_trang'  WHERE ma_san_pham='$ma_sp'";
     pdo_execute($sql);
+    var_dump($sql);
 }
 
 
@@ -69,7 +83,7 @@ function get_list_cate()
 function get_list_pro_shop($ma_loai, $page, $sort)
 {
     $st = 9 * ($page - 1);
-    if($ma_loai == 0) $sqlCate = "";
+    if ($ma_loai == 0) $sqlCate = "";
     else $sqlCate = "WHERE san_pham.ma_loai = $ma_loai ";
     switch ($sort) {
         case 0:
@@ -97,7 +111,7 @@ function get_list_pro_shop($ma_loai, $page, $sort)
 
 function get_count_cate($ma_loai)
 {
-    
+
     $sql = "SELECT san_pham.ma_loai, COUNT(san_pham.ma_loai) as so_luong FROM san_pham WHERE san_pham.ma_loai = $ma_loai GROUP BY san_pham.ma_loai ";
     $so_luong = pdo_query_one($sql);
     return $so_luong['so_luong'];
@@ -105,7 +119,7 @@ function get_count_cate($ma_loai)
 
 function get_count_all()
 {
-    
+
     $sql = "SELECT COUNT(san_pham.ma_san_pham) as so_luong FROM san_pham";
     $so_luong = pdo_query_one($sql);
     return $so_luong['so_luong'];
@@ -146,5 +160,3 @@ function plus_qty($id, $qty)
     $sql = "UPDATE `duan`.`san_pham` SET `so_luong_san_pham` = `so_luong_san_pham` + $qty WHERE `ma_san_pham` = $id;";
     pdo_execute($sql);
 }
-
-

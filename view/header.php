@@ -9,10 +9,10 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Home Clean | Ruper</title>
+	<title>Home Clean | HakyBook</title>
 
 	<!-- Favicon -->
-	<link rel="shortcut icon" type="image/x-icon" href="media/favicon.png">
+	<link rel="shortcut icon" type="image/x-icon" href="media/slider/logo.png">
 
 	<!-- Dependency Styles -->
 	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" type="text/css">
@@ -25,6 +25,8 @@
 	<link rel="stylesheet" href="libs/slick/css/slick-theme.css" type="text/css">
 	<link rel="stylesheet" href="libs/mmenu/css/mmenu.min.css" type="text/css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="assets/js/api.js"></script>
 	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
@@ -35,6 +37,8 @@
 	<link rel="stylesheet" href="assets/css/app.css" type="text/css">
 	<link rel="stylesheet" href="assets/css/responsive.css" type="text/css">
 	<link rel="stylesheet" href="assets/css/toast.css" type="text/css">
+	
+	
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
 

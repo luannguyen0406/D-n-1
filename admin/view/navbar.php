@@ -95,7 +95,7 @@
               </a></div><a class="sidebar__user">
               <div class="sidebar__ava"><img class="sidebar__pic" src="img/ava.png" alt="" /></div>
               <div class="sidebar__desc">
-                <div class="sidebar__man">Tam Tran</div>
+                <div class="sidebar__man"><?php echo $_SESSION['user_admin']['name'] ?></div>
                 <div class="sidebar__status caption">Free account</div>
               </div>
               <div class="sidebar__arrow"><svg class="icon icon-arrows">

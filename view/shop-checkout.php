@@ -32,30 +32,23 @@
 													<p class="form-row form-row-wide validate-required">
 														<label>Tỉnh / Thành phố <span class="required" title="required">*</span></label>
 														<span class="input-wrapper">
-															<select name="billing_country" class="custom-select" id="province">
-
-															</select>
+															<select name="billing_country" class="custom-select" id="province"></select>
 														</span>
 													</p>
 													<p class="form-row form-row-wide validate-required" id="quan">
 														<label>Quận / Huyện <span class="required" title="required">*</span></label>
 														<span class="input-wrapper">
-															<select name="billing_country" class="custom-select" id="district">
-
-															</select>
+															<select name="billing_country" class="custom-select" id="district"></select>
 														</span>
 													</p>
 													<p class="form-row form-row-wide validate-required" id="xa">
 														<label>Thị trấn / Xã <span class="required" title="required">*</span></label>
 														<span class="input-wrapper">
-															<select name="billing_country" class="custom-select" id="ward">
-
-															</select>
+															<select name="billing_country" class="custom-select" id="ward"></select>
 														</span>
 													</p>
-
 													<p class="form-row address-field form-row-wide" id="so">
-														<label>Tên đường , Số nhà <span class="required" title="required">*</span></label>
+														<label>Tên đường, Số nhà <span class="required" title="required">*</span></label>
 														<span class="input-wrapper">
 															<input type="text" class="input-text" name="billing_address_2" placeholder="Tên đường, Số nhà" value="" id="detail">
 														</span>
@@ -172,7 +165,7 @@
 										</div> -->
 										<div class="additional-fields">
 											<p class="form-row notes">
-												<label>Chú tích <span class="optional">(Không bắt buộc)</span></label>
+												<label>Chú thích <span class="optional">(Không bắt buộc)</span></label>
 												<span class="input-wrapper">
 													<textarea name="order_comments" class="input-text" placeholder="Những điều cần lưu ý" rows="2" cols="5"></textarea>
 												</span>
@@ -224,10 +217,10 @@
 													<div data-title="Shipping">
 														<ul class="shipping-methods custom-radio">
 															<li>
-																<input type="radio" name="shipping_method" data-index="0" value="1" class="shipping_method" <?php if($ship == "" || $ship == "1") echo 'checked="checked"';?>><label>Giao bình thường</label>
+																<input type="radio" name="shipping_method" data-index="0" value="1" class="shipping_method" <?php if ($ship == "" || $ship == "1") echo 'checked="checked"'; ?>><label>Giao bình thường</label>
 															</li>
 															<li>
-																<input type="radio" name="shipping_method" data-index="0" value="2" class="shipping_method" <?php if($ship == "2") echo 'checked="checked"' ?>><label>Giao nhanh</label>
+																<input type="radio" name="shipping_method" data-index="0" value="2" class="shipping_method" <?php if ($ship == "2") echo 'checked="checked"' ?>><label>Giao nhanh</label>
 															</li>
 														</ul>
 													</div>
@@ -295,4 +288,3 @@
 <script src="assets/js/address.js"></script>
 <script src="assets/js/bill.js"></script>
 <script src="assets/js/checkout.js"></script>
-

@@ -23,7 +23,10 @@ function get_list_cmt_product($ma_san_pham){
 }
 
 function cmt_all($kyw=""){
-    $sql = "select * from binh_luan where 1";
+    $sql = "select bl.*, kh.ten_khach_hang 
+            from binh_luan bl 
+            join khach_hang kh on bl.ma_khach_hang = kh.ma_khach_hang 
+            where 1";
     if($kyw!=""){
         $sql .= " and ma_san_pham like '%".$kyw."%'";
     }

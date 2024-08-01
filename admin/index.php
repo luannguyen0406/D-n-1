@@ -15,9 +15,9 @@ if (!isset($_SESSION['user_admin'])) {
 } else {
 
     include "view/header.php";
-    
+
     if (isset($_GET['act'])) {
-        
+
         $act = $_GET['act'];
         include "view/navbar.php";
         switch ($act) {
@@ -47,6 +47,7 @@ if (!isset($_SESSION['user_admin'])) {
 
                     insert_user($ten_khach_hang, $so_dt, $email, $chuc_nang, $mat_khau, $dia_chi);
                     $thongbao = "Thêm thành công";
+                    header("Location: index.php?act=list_user");
                 }
 
                 $list_user = user_all("", 0);
@@ -71,6 +72,7 @@ if (!isset($_SESSION['user_admin'])) {
                     $update = update_user($id, $ten_khach_hang, $so_dt, $email, $chuc_nang, $mat_khau, $dia_chi);
                     $thongbao = "Update thành công";
                     $list_user = user_all("", 0);
+                    header("Location: index.php?act=list_user");
                 }
                 include 'user/list.php';
                 break;
@@ -173,7 +175,7 @@ if (!isset($_SESSION['user_admin'])) {
                 $results = get_all_loai_sp();
                 include 'category/list.php';
                 break;
-                
+
             case 'product-add':
                 $loai_sp = get_all_loai_sp();
                 if (isset($_POST["them_product"])) {
@@ -231,6 +233,10 @@ if (!isset($_SESSION['user_admin'])) {
                     $ngay_tao = $_POST["ngay_tao"];
                     $gia_khuyen_mai = $_POST["gia_khuyen_mai"];
                     $so_luong = $_POST["so_luong"];
+                    $tac_gia = $_POST['tac_gia'];
+                    $nxb = $_POST['nxb'];
+                    $nam_xb = $_POST['nam_xb'];
+                    $so_trang = $_POST['so_trang'];
 
                     if (isset($_FILES["anh_san_phama"])) {
                         $target_dir = "../media/product/";
@@ -255,12 +261,26 @@ if (!isset($_SESSION['user_admin'])) {
                         if ($allowUpload == true) {
                             move_uploaded_file($_FILES["anh_san_phama"]["tmp_name"], $target_file);
                         }
-                        edit_san_pham($ma_san_pham, $ten_san_pham, $don_gia, $anh_san_pham, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
-                        
+                        edit_san_pham(
+                            $ma_sp,
+                            $ten_san_pham,
+                            $don_gia,
+                            $ma_loai,
+                            $anh_san_pham,
+                            $mo_ta_tom_tat,
+                            $ngay_tao,
+                            $gia_khuyen_mai,
+                            $so_luong,
+                            $tac_gia,
+                            $nxb,
+                            $nam_xb,
+                            $so_trang
+                        );
+
                         $message = "update thành công";
+                        header("Location: index.php?act=list_products");
                     }
                 }
-
                 include 'product/edit.php';
                 break;
             case 'list_products':

@@ -19,6 +19,10 @@ $results = get_all_san_pham();
             <!-- <th scope="col">Ngày tạo</th> -->
             <th scope="col">Giá Khuyến Mại</th>
             <th scope="col">Số Lượng</th>
+            <th scope="col">Tác giả</th>
+            <th scope="col">Nhà xuất bản</th>
+            <th scope="col">Năm xuất bản</th>
+            <th scope="col">Số trang</th>
             <th scope="col">Chức Năng</th>
             
             
@@ -32,15 +36,17 @@ $results = get_all_san_pham();
                 <td style="width: 200px;"><?php echo $value['ten_san_pham'] ?></td>
                 <td><?php echo $value['don_gia'] ?></td>
                 <td><?php echo $value['ten_loai'] ?></td>
-                <td><div  style=' background-image: url("../media/product/<?php echo $img;?>"); width: 150px; height: 100px; background-position: center; background-size: cover;' alt="ảnh sp"></div></td>              
+                <td><div  style=' background-image: url("../media/product/<?php echo $img;?>"); width: 150px; height: 200px; background-position: center; background-size: cover;' alt="ảnh sp"></div></td>              
                 <!-- <td><?php echo $value['mo_ta_tom_tat']; ?></td> -->
                 <!-- <td><?php echo $value['ngay_tao'] ?></td> -->
                 <td><?php echo $value['gia_khuyen_mai'] ?></td>
                 <td><?php echo $value['so_luong_san_pham'] ?></td>
+                <td><?php echo $value['tac_gia'] ?></td>
+                <td><?php echo $value['nxb'] ?></td>
+                <td><?php echo $value['nam_xb'] ?></td>
+                <td><?php echo $value['so_trang'] ?></td>
                 <td>
                     <button type="button" class="btn btn-primary" onclick="location.href='index.php?act=update_product&editId=<?php echo $value['ma_san_pham']; ?>'">Sửa</button>
-                    <!-- <button type="button" class="btn btn-primary" onclick="location.href='index.php?act=edit_san_pham&editId=<?php echo $value['ma_loai']; ?>'">Sửa</button> -->
-
                     <button type="button" class="btn btn-danger" onclick="
                         const result = confirm('Bạn có chắc chắn muốn xóa không?');
                         if(result){

@@ -339,5 +339,4 @@ if (isset($_GET['act'])) {
             break;
         default:
     }
-} else {
 }

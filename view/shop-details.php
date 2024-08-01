@@ -34,7 +34,7 @@ $listImg = explode(", ", $anh_san_pham)
 
 															<div class="img-item slick-slide">
 																<span class="img-thumbnail-scroll">
-																	<img width="600" height="600" src="media/product/<?= $img ?>" alt="">
+																	<img width="600px" height="600px" src="media/product/<?= $img ?>" alt="">
 																</span>
 															</div>
 
@@ -48,7 +48,7 @@ $listImg = explode(", ", $anh_san_pham)
 														<?php foreach ($listImg as $img) : ?>
 
 															<div class="img-item slick-slide">
-																<img width="900" height="900" src="media/product/<?= $img ?>" alt="" title="">
+																<img width="300px" height="300px" src="media/product/<?= $img ?>" alt="" title="">
 															</div>
 
 														<?php endforeach; ?>
@@ -71,35 +71,6 @@ $listImg = explode(", ", $anh_san_pham)
 												(<?= $so_luong_binh_luan ?><span> reviews</span>)
 											</div>
 										</div>
-										<div class="description">
-											<p><?= $mo_ta_tom_tat ?></p>
-										</div>
-										<!-- <div class="variations">
-											<table cellspacing="0">
-												<tbody>
-													<tr>
-														<td class="label">Size</td>
-														<td class="attributes">
-															<ul class="text">
-																<li><span>L</span></li>
-																<li><span>M</span></li>
-																<li><span>S</span></li>
-															</ul>
-														</td>
-													</tr>
-													<tr>
-														<td class="label">Color</td>
-														<td class="attributes">
-															<ul class="colors">
-																<li><span class="color-1"></span></li>
-																<li><span class="color-2"></span></li>
-																<li><span class="color-3"></span></li>
-															</ul>
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div> -->
 										<div class="buttons">
 											<div class="add-to-cart-wrap">
 												<div class="quantity">
@@ -111,25 +82,34 @@ $listImg = explode(", ", $anh_san_pham)
 													<a class="button" tabindex="0" onclick="addCartQtt(<?= $ma_san_pham ?>, this)">Thêm vào giỏ hàng</a>
 												</div>
 											</div>
-											<!-- <div class="btn-quick-buy" data-title="Wishlist">
-												<button class="product-btn">Buy It Now</button>
-											</div>
-											<div class="btn-wishlist" data-title="Wishlist">
-												<button class="product-btn">Add to wishlist</button>
-											</div>
-											<div class="btn-compare" data-title="Compare">
-												<button class="product-btn">Compare</button>
-											</div> -->
 										</div>
 										<div class="product-meta">
-											<span class="sku-wrapper">SKU: <span class="sku">D2300-3-2-2</span></span>
+											<span class="sku-wrapper">SKU: <span class="sku">MSI_<?= $ma_san_pham ?></span></span>
 											<span class="posted-in">Category: <a href="?act=shop-grid-left&cate=<?= $ma_loai ?>" rel="tag"><?= $ten_loai ?></a></span>
 											<span class="tagged-as">Tags: <a href="?act=shop-grid-left&cate=<?= $ma_loai ?>" rel="tag">Hot</a>, <a href="?act=shop-grid-left&cate=<?= $ma_loai ?>" rel="tag">Trend</a></span>
 										</div>
+										<div class="product-meta">
+											<p class="sku-wrapper">Author : <strong><span class="sku"><?= $tac_gia ?></span></strong></p>
+											<p class="posted-in">Publisher: <strong><span class="sku"><?= $nxb ?></span></strong></p>
+											<p class="tagged-as">Publication Year: <strong><span class="sku"><?= $nam_xb ?></span></strong></p>
+											<p class="tagged-as">Number of pages: <strong><span class="sku"><?= $so_trang ?></span></strong></p>
+										</div>
 										<div class="social-share">
-											<a href="#" title="Facebook" class="share-facebook" target="_blank"><i class="fa fa-facebook"></i>Facebook</a>
-											<a href="#" title="Twitter" class="share-twitter"><i class="fa fa-twitter"></i>Twitter</a>
-											<a href="#" title="Pinterest" class="share-pinterest"><i class="fa fa-pinterest"></i>Pinterest</a>
+											<div class="description">
+												<p>Mô tả về sách : <?= $mo_ta_tom_tat ?></p>
+											</div>
+											<div class="description">
+												<a href="#" title="Facebook" class="share-facebook" target="_blank">Facebook</a>
+												<i class="fa-brands fa-facebook"></i>
+											</div>
+											<div class="description">
+												<a href="#" title="Twitter" class="share-twitter">Twitter</a>
+												<i class="fa-brands fa-twitter"></i>
+											</div>
+											<div class="description">
+												<a href="#" title="Pinterest" class="share-pinterest">Intargram</a>
+												<i class="fa fa-pinterest"></i>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -169,7 +149,7 @@ $listImg = explode(", ", $anh_san_pham)
 										<div class="tab-pane fade" id="reviews" role="tabpanel">
 											<div id="reviews" class="product-reviews">
 												<div id="comments">
-													<h2 class="reviews-title"><?= $so_luong_binh_luan ?> cho <span><?= $ten_san_pham ?></span></h2>
+													<h2 class="reviews-title"><?= $so_luong_binh_luan ?> Bình luận cho <span><?= $ten_san_pham ?></span></h2>
 													<ol class="comment-list">
 														<li class="review">
 															<?php foreach ($listBinhLuan as $item) : ?>

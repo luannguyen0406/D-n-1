@@ -11,12 +11,12 @@
 									<div class="item slick-slide">
 										<div class="item-content">
 											<div class="content-image">
-												<img width="1920" height="1080" src="media/slider/4.jpg" alt="Image Slider">
+												<img width="1920" height="1080" src="media/slider/banner1.jpg" alt="Image Slider">
 											</div>
 											<div class="item-info horizontal-start vertical-middle">
 												<div class="content">
 													<div class="subtitle-slider">SALE UP TO 30% OFF</div>
-													<h2 class="title-slider">Outdoor Chair</h2>
+													<h2 class="title-slider">Văn Hóa</h2>
 													<a class="button-slider button-white" href="?act=shop-grid-left">SHOP NOW</a>
 												</div>
 											</div>
@@ -25,12 +25,12 @@
 									<div class="item slick-slide">
 										<div class="item-content">
 											<div class="content-image">
-												<img width="1920" height="1080" src="media/slider/5.jpg" alt="Image Slider">
+												<img width="1920" height="1080" src="media/slider/banner4.jpg" alt="Image Slider">
 											</div>
 											<div class="item-info horizontal-start vertical-middle">
 												<div class="content">
 													<div class="subtitle-slider">SALE UP TO 30% OFF</div>
-													<h2 class="title-slider">Accessories</h2>
+													<h2 class="title-slider">Chính Trị</h2>
 													<a class="button-slider button-white" href="?act=shop-grid-left">SHOP NOW</a>
 												</div>
 											</div>
@@ -39,12 +39,12 @@
 									<div class="item slick-slide">
 										<div class="item-content">
 											<div class="content-image">
-												<img width="1920" height="1080" src="media/slider/6.jpg" alt="Image Slider">
+												<img width="1920" height="1080" src="media/slider/banner3.jpg" alt="Image Slider">
 											</div>
 											<div class="item-info horizontal-start vertical-middle">
 												<div class="content">
 													<div class="subtitle-slider">SALE UP TO 30% OFF</div>
-													<h2 class="title-slider">Kitchen Sale</h2>
+													<h2 class="title-slider" style="color:white">Kinh tế</h2>
 													<a class="button-slider button-white" href="?act=shop-grid-left">SHOP NOW</a>
 												</div>
 											</div>
@@ -689,7 +689,7 @@
 											<div class="lookbook-container">
 												<div class="lookbook-content">
 													<div class="item">
-														<img width="869" height="702" src="media/banner/lookbook-1.jpg" alt="Look Book 1">
+														<img width="869" height="702" src="media/slider/banner3.jpg" alt="Look Book 1">
 														<!-- <div class="item-lookbook" style="height:30px; width:30px; left:78.37%; top:50%">
 															<span class="number-lookbook">1</span>
 															<div class="content-lookbook" style="right:33px; top:10px;">

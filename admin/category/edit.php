@@ -6,6 +6,7 @@
         $ten_loai = $_POST['ten_loai'];
         edit_loai_sp($id,$ten_loai);
         $message= "Edit thành công";
+        header("Location: index.php?act=list_category");
     }
 ?>
 <div style="margin-left: 350px" class="container">

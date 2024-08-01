@@ -7,7 +7,7 @@
         <tr>
             <th scope="col">Mã loại</th>
             <th scope="col">Tên loại</th>
-            <th scope="col">Action</th>
+            <th scope="col">Thao tác</th>
         </tr>
     </thead>
     <tbody class="table-group-divider">

@@ -9,6 +9,10 @@ if (isset($_POST["them_product"])) {
     $ngay_tao = $_POST["ngay_tao"];
     $gia_khuyen_mai = $_POST["gia_khuyen_mai"];
     $so_luong = $_POST["so_luong"];
+    $tac_gia = $_POST['tac_gia'];
+    $nxb = $_POST['nxb'];
+    $nam_xb = $_POST['nam_xb'];
+    $so_trang = $_POST['so_trang'];
 
     if (isset($_FILES["anh_san_pham"])) {
         foreach ($_FILES['anh_san_pham']['name'] as $index => $value) {
@@ -34,7 +38,7 @@ if (isset($_POST["them_product"])) {
 
 
         if ($allowUpload) {
-            $id = add_san_pham($ten_san_pham, $don_gia, $ma_loai, $mo_ta_tom_tat, $ngay_tao, $gia_khuyen_mai, $so_luong);
+            $id = add_san_pham($ten_san_pham, $don_gia, $ma_loai,$gia_khuyen_mai ,$mo_ta_tom_tat, $ngay_tao , $so_luong, $tac_gia, $nxb, $nam_xb, $so_trang);
             $_img = [];
             foreach ($_FILES['anh_san_pham']['name'] as $index => $value) {
                 $target_dir = "../media/product/";
@@ -53,6 +57,7 @@ if (isset($_POST["them_product"])) {
             add_img_san_pham($id, $_img);
             
         }
+        header("Location: index.php?act=list_products");
     }
 }
 
@@ -123,9 +128,37 @@ if (isset($_POST["them_product"])) {
         </div>
         <div class="col-md-6">
             <label for="validationCustom06" class="form-label fw-bold">Số Lượng</label>
-            <textarea name="so_luong" class="form-control" id="validationCutom06" cols="30" rows="5" required></textarea>
+            <input name="so_luong" class="form-control" id="validationCutom06" cols="30" rows="5" required></input>
             <div class="invalid-feedback">
                 Vui lòng nhập số lượng
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom06" class="form-label fw-bold">Tác giả</label>
+            <input name="tac_gia" class="form-control" id="validationCutom06" cols="30" rows="5" required></input>
+            <div class="invalid-feedback">
+                Vui lòng nhập tên tác giả
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom06" class="form-label fw-bold">Nhà xuất bản</label>
+            <input name="nxb" class="form-control" id="validationCutom06" cols="30" rows="5" required></input>
+            <div class="invalid-feedback">
+                Vui lòng nhập nhà xuất bản
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom06" class="form-label fw-bold">Năm xuất bản</label>
+            <input name="nam_xb" class="form-control" id="validationCutom06" cols="30" rows="5" required></input>
+            <div class="invalid-feedback">
+                Vui lòng nhập năm xuất bản
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="validationCustom06" class="form-label fw-bold">Số trang</label>
+            <input name="so_trang" class="form-control" id="validationCutom06" cols="30" rows="5" required></input>
+            <div class="invalid-feedback">
+                Vui lòng nhập số trang
             </div>
         </div>
 

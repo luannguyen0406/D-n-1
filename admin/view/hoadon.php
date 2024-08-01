@@ -156,7 +156,7 @@
               <th width="100px">Số lượng</th>
               <th width="200px">Đơn giá</th>
               <th width="200px">Trạng thái</th>
-              <th width="80px">Công cụ</th>
+              <th width="80px">Chi tiết</th>
             </thead>
             <tbody>
 

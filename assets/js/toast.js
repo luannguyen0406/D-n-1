@@ -63,3 +63,10 @@ function showErrorToast() {
         duration: 5000
     });
 }
+document.getElementById('search-label').addEventListener('click', function() {
+    var searchInput = document.getElementById('gsearch');
+    searchInput.classList.toggle('hidden');
+    if (!searchInput.classList.contains('hidden')) {
+        searchInput.focus();
+    }
+});
