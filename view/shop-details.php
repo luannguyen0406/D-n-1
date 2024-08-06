@@ -34,7 +34,7 @@ $listImg = explode(", ", $anh_san_pham)
 
 															<div class="img-item slick-slide">
 																<span class="img-thumbnail-scroll">
-																	<img width="600px" height="600px" src="media/product/<?= $img ?>" alt="">
+																	<img width="300px" height="300px" src="media/product/<?= $img ?>" alt="">
 																</span>
 															</div>
 
@@ -42,7 +42,7 @@ $listImg = explode(", ", $anh_san_pham)
 													</div>
 												</div>
 											</div>
-											<div class="col-md-10">
+											<div class="col-md-8">
 												<div class="scroll-image main-image">
 													<div class="image-additional slick-carousel" data-asnavfor=".image-thumbnail" data-fade="true" data-columns4="1" data-columns3="1" data-columns2="1" data-columns1="1" data-columns="1" data-nav="true">
 														<?php foreach ($listImg as $img) : ?>

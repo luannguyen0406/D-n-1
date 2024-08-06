@@ -1,43 +1,59 @@
-// 1. what is API
-// 2. How do I call API
-// 3. Explain code
-const host = "https://provinces.open-api.vn/api/";
-var callAPI = (api) => {
+const host = "https://location.thevolunty.com/api/";
+
+// Helper function to call APIs
+const callAPI = (api, callback) => {
     return axios.get(api)
-        .then((response) => {
-            renderData(response.data, "province");
-        });
-}
-callAPI('https://provinces.open-api.vn/api/?depth=1');
-var callApiDistrict = (api) => {
-    return axios.get(api)
-        .then((response) => {
-            renderData(response.data.districts, "district");
-        });
-}
-var callApiWard = (api) => {
-    return axios.get(api)
-        .then((response) => {
-            renderData(response.data.wards, "ward");
+        .then(response => {
+            callback(response.data);
+        })
+        .catch(error => {
+            console.error('Error calling API:', error);
         });
 }
 
+// Call API for provinces
+const callProvinces = () => {
+    callAPI(host + 'p/', data => {
+        renderData(data, 'province');
+    });
+}
+
+// Call API for districts
+const callDistricts = (provinceId) => {
+    callAPI(host + 'p/' + provinceId + '?depth=2', data => {
+        renderData(data.districts, 'district');
+    });
+}
+
+// Call API for wards
+const callWards = (districtId) => {
+    callAPI(host + 'd/' + districtId + '?depth=2', data => {
+        renderData(data.wards, 'ward');
+    });
+}
+
+// Render data into select elements
+const renderData = (array, select) => {
+    let options = '<option disabled value="">Chọn vùng</option>';
+    if (Array.isArray(array)) {
+        array.forEach(element => {
+            options += `<option value="${element.code}">${element.name}</option>`;
+        });
+    }
+    document.querySelector(`#${select}`).innerHTML = options;
+}
+
+// Initialize UI states
 $("#quan").hide();
 $("#xa").hide();
 $("#so").hide();
 
-var renderData = (array, select) => {
-    let row = ' <option disable value="">Chọn vùng</option>';
-    array.forEach(element => {
-        row += `<option value="${element.code}">${element.name}</option>`
-    });
-    document.querySelector("#" + select).innerHTML = row
-}
-
+// Event listener for province change
 $("#province").change(() => {
-    if ($("#province").val() != "") {
-        callApiDistrict(host + "p/" + $("#province").val() + "?depth=2");
-        $("#quan").show()
+    const provinceId = $("#province").val();
+    if (provinceId) {
+        callDistricts(provinceId);
+        $("#quan").show();
         $("#xa").hide();
         $("#so").hide();
     } else {
@@ -46,9 +62,12 @@ $("#province").change(() => {
         $("#so").hide();
     }
 });
+
+// Event listener for district change
 $("#district").change(() => {
-    if ($("#district").val() != "") {
-        callApiWard(host + "d/" + $("#district").val() + "?depth=2");
+    const districtId = $("#district").val();
+    if (districtId) {
+        callWards(districtId);
         $("#xa").show();
         $("#so").hide();
     } else {
@@ -56,22 +75,26 @@ $("#district").change(() => {
         $("#so").hide();
     }
 });
+
+// Event listener for ward change
 $("#ward").change(() => {
-    if ($("#ward").val() != "") {
+    if ($("#ward").val()) {
         $("#so").show();
     } else {
         $("#so").hide();
     }
     printResult();
-    $("#so").show();
-})
+});
 
-var printResult = () => {
-    if ($("#district").val() != "" && $("#province").val() != "" &&
-        $("#ward").val() != "") {
-        let result = $("#province option:selected").text() +
-            " | " + $("#district option:selected").text() + " | " +
-            $("#ward option:selected").text();
-        $("#result").text(result)
+// Print selected province, district, and ward
+const printResult = () => {
+    if ($("#district").val() && $("#province").val() && $("#ward").val()) {
+        const result = `${$("#province option:selected").text()} | ${$("#district option:selected").text()} | ${$("#ward option:selected").text()}`;
+        $("#result").text(result);
     }
 }
+
+// Load provinces on page load
+$(document).ready(() => {
+    callProvinces();
+});

@@ -31412,4 +31412,17 @@ body i[class~=slick-arrow][class~=fa-angle-right] {
 .page-numbers li {
   cursor: pointer;
 }
+.product-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  flex: 1 0 21%; /* 21% để có khoảng cách giữa các sản phẩm */
+  margin: 1%;
+  box-sizing: border-box;
+  border: 0px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
 

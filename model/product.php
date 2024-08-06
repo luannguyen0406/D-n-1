@@ -6,6 +6,17 @@ function get_list_product($st, $step)
     $listsanpham = pdo_query($sql);
     return $listsanpham;
 }
+function get_list_seach($kyw){
+    $sql="select * from san_pham where 1"; 
+    if($kyw!=""){
+        $sql.=" and ten_san_pham like '%".$kyw."%'";
+    }
+    
+    $sql.=" order by ma_san_pham desc";
+    $listsanpham= pdo_query($sql);
+    return $listsanpham;
+}
+
 
 function get_product($id)
 {

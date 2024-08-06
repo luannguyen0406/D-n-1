@@ -58,13 +58,29 @@ if (isset($_GET['act'])) {
             require "view/shop-cart.php";
             break;
 
+        case "seach":
+            isset($_POST['timkiem']);
+            $kyw = $_POST['kyw'];
+            $listSeach = get_list_seach($kyw);
+
+            $countAll = get_count_all();
+            if (isset($_GET['cate'])) $id_cate = $_GET['cate'];
+            else $id_cate = 0;
+            if ($id_cate == 0) $count = $countAll;
+            // else $count = get_count_cate($id_cate);
+
+            if (isset($_GET['page'])) $page = $_GET['page'];
+            else $page = 1;
+            $listCate = get_list_cate();
+            require "view/seach.php";
+            break;
         case "shop-grid-left":
             $countAll = get_count_all();
             if (isset($_GET['cate'])) $id_cate = $_GET['cate'];
             else $id_cate = 0;
-            if($id_cate == 0) $count = $countAll;
+            if ($id_cate == 0) $count = $countAll;
             else $count = get_count_cate($id_cate);
-            
+
             if (isset($_GET['page'])) $page = $_GET['page'];
             else $page = 1;
             $listCate = get_list_cate();

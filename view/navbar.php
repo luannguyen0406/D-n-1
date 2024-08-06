@@ -159,12 +159,10 @@ $listCategories = get_all_loai_sp();
                                             </ul>
                                         </li>
                                         <li class="level-0 menu-item">
-                                            <div class="cot22">
-                                                <input id="id2" name="kyw" type="text" placeholder="Nhập tên sách">
-                                                <button class="handel-search" id="id1">
-                                                    Tìm kiếm
-                                                </button>
-                                            </div>
+                                            <form action="index.php?act=seach" method="POST">
+                                                <input type="text" name="kyw" id="" placeholder="Từ khóa tìm kiếm">
+                                                <input type="submit" name="timkiem" value="tìm kiếm">
+                                            </form>
                                         </li>
                                     </ul>
                                 </nav>
